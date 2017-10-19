@@ -60,8 +60,8 @@ class DCGAN():
         with tf.variable_scope("Generator"):
             self.L0 = fully_connected(self.input_noise, 4 * 4 * self.max_filter, "linear0")
             self.L0 = tf.reshape(self.L0, [self.batch_size, 4, 4, self.max_filter], name="reshape")
-            self.L0 = batch_norm(self.L0, name="batch_norm0")
-            self.L0 = tf.nn.relu(self.L0, name="relu0")
+            #self.L0 = batch_norm(self.L0, name="batch_norm0")
+            #self.L0 = tf.nn.relu(self.L0, name="relu0")
 
             self.L1 = deconv2d(self.L0, [self.batch_size, 8, 8, self.max_filter//2],  name="deconv1")
             self.L1 = batch_norm(self.L1, name="batch_norm1")
